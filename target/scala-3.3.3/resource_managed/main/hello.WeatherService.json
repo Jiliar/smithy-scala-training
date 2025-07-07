@@ -1,0 +1,148 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "WeatherService",
+        "version": ""
+    },
+    "paths": {
+        "/cities": {
+            "post": {
+                "operationId": "CreateCity",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateCityRequestContent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "CreateCity 201 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateCityResponseContent"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cities/{cityId}/weather": {
+            "get": {
+                "operationId": "GetWeather",
+                "parameters": [
+                    {
+                        "name": "cityId",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "metric"
+                        }
+                    },
+                    {
+                        "name": "X-Region",
+                        "in": "header",
+                        "schema": {
+                            "type": "string",
+                            "default": "us-east-1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GetWeather 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetWeatherResponseContent"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "City": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "country",
+                    "id",
+                    "name"
+                ]
+            },
+            "CreateCityRequestContent": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "The name of the city to create."
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "The country where the city is located."
+                    }
+                },
+                "required": [
+                    "city",
+                    "country"
+                ]
+            },
+            "CreateCityResponseContent": {
+                "type": "object",
+                "properties": {
+                    "cityId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cityId"
+                ]
+            },
+            "GetWeatherResponseContent": {
+                "type": "object",
+                "properties": {
+                    "weather": {
+                        "type": "string"
+                    },
+                    "temperature": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/City"
+                    }
+                },
+                "required": [
+                    "weather"
+                ]
+            }
+        }
+    }
+}
