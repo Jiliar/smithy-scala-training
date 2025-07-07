@@ -70,12 +70,13 @@ operation CreateUser { ... }
 
 ⸻
 
-🛠 Methodology
-	1.	Define models using structure, enum, union, etc.
-	2.	Declare operations with inputs, outputs, and possible errors.
-	3.	Annotate with traits like @http or @readonly.
-	4.	Define the protocol using traits such as @restJson1.
-	5.	Validate and generate code with the Smithy CLI or codegen plugins.
+🛠 Methodology:
+
+	- Define models using structure, enum, union, etc.
+	- Declare operations with inputs, outputs, and possible errors.
+	- Annotate with traits like @http or @readonly.
+	- Define the protocol using traits such as @restJson1.
+	- Validate and generate code with the Smithy CLI or codegen plugins.
 
 ⸻
 
