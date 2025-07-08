@@ -11,8 +11,23 @@ import smithy4s.http4s.SimpleRestJsonBuilder
 
 object SimpleExportServerMain extends IOApp.Simple {
 
-    //http POST http://localhost:8080/export?destination="/tmp/export-file.json" format=JSON
-    //http POST http://localhost:8080/export?destination="/tmp/export-file.csv" format=CSV
+    // Exportar a JSON (.json)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=JSON
+
+    // Exportar a CSV (.csv)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=CSV
+
+    // Exportar a YAML (.yml)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=YAML
+
+    // Exportar a Parquet (.parquet)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=PARQUET
+
+    // Exportar a Avro (.avro)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=AVRO
+
+    // Exportar a Protobuf (.bin)
+    // http POST http://localhost:8080/export?destination="/tmp/export-file" format=PROTOBUF
     val impl: ExportService[IO] = new ExportService[IO] {
     
         def exportData(format: ExportFormat, destinationPath: String): IO[ExportDataOutput] = {
