@@ -1,1 +1,1 @@
-["smithy4sdemo.ClientMain","smithy4sdemo.ServerMain"]
+["smithy4sdemo.SimpleExportServerMain","smithy4sdemo.WeatherClientMain","smithy4sdemo.WeatherServerMain"]

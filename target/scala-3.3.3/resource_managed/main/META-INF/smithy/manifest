@@ -1,6 +1,7 @@
 smithy4s.tracking.smithy
 03_services_shapes.smithy
 00_weather.smithy
+04_export_data.smithy
 01_simple_shapes.smithy
 02_aggreates_shapes.smithy
 generated-metadata.smithy

@@ -1,0 +1,83 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "ExportService",
+        "version": "1.0"
+    },
+    "paths": {
+        "/export": {
+            "post": {
+                "operationId": "ExportData",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ExportDataRequestContent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "name": "destination",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ExportData 200 response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ExportDataResponseContent"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ExportDataRequestContent": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/ExportFormat"
+                    }
+                },
+                "required": [
+                    "format"
+                ]
+            },
+            "ExportDataResponseContent": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "ExportFormat": {
+                "type": "string",
+                "enum": [
+                    "JSON",
+                    "CSV",
+                    "YAML",
+                    "Parquet",
+                    "Avro",
+                    "Protobuf"
+                ]
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "smithy-training",
     scalaVersion := scalaVersion.value,
-    Compile / mainClass := Some("smithy4sdemo.ServerMain"),
+    Compile / mainClass := Some("smithy4sdemo.SimpleExportServerMain"),
     Compile / run / fork := true,
     libraryDependencies ++= Seq(
       "com.disneystreaming.smithy4s" %% "smithy4s-http4s" % smithy4sVersion,

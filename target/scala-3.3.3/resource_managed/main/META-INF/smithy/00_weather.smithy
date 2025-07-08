@@ -1,5 +1,5 @@
 $version: "2"
-namespace hello
+namespace weather
 
 use alloy#simpleRestJson
 
